@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-add_definitions(-DOS_MACOSX)
+add_definitions(-DOS_LINUX)
 project(echo)
 
 include_directories("${PROJECT_SOURCE_DIR}")
@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 11)
 aux_source_directory(handy HANDY_SRCS)
 add_library(handy
         ${HANDY_SRCS})
+target_link_libraries(handy pthread)
 
 add_executable(codec-cli
         examples/codec-cli.cc)
